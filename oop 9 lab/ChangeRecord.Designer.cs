@@ -75,7 +75,7 @@ namespace oop_9_lab
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(75, 23);
             this.addButton.TabIndex = 16;
-            this.addButton.Text = "Добавить";
+            this.addButton.Text = "Изменить";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 

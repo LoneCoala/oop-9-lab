@@ -161,9 +161,9 @@ namespace oop_9_lab
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.TextBox surname;
-        private System.Windows.Forms.TextBox name;
-        private System.Windows.Forms.TextBox fatherName;
-        private System.Windows.Forms.TextBox phoneNumber;
+        public System.Windows.Forms.TextBox surname;
+        public System.Windows.Forms.TextBox name;
+        public System.Windows.Forms.TextBox fatherName;
+        public System.Windows.Forms.TextBox phoneNumber;
     }
 }

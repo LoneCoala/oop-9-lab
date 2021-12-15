@@ -35,13 +35,19 @@ namespace oop_9_lab
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            if ((String.IsNullOrWhiteSpace(surname.Text)) || (String.IsNullOrWhiteSpace(name.Text)))
+            {
+                MessageBox.Show("Вы не ввели имя или фамилию!", "Внимание!");
+                return;
+            }
             SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Phonebook] (Surname,Name,FatherName,PhoneNumber) Values (@Surname,@Name,@FatherName,@PhoneNumber)", sqlConnection);
             sqlCommand.Parameters.AddWithValue("Surname", surname.Text);
             sqlCommand.Parameters.AddWithValue("Name", name.Text);
             sqlCommand.Parameters.AddWithValue("FatherName", fatherName.Text);
             sqlCommand.Parameters.AddWithValue("PhoneNumber", phoneNumber.Text);
-
-            MessageBox.Show(sqlCommand.ExecuteNonQuery().ToString());
+            sqlCommand.ExecuteNonQuery();
+            //MessageBox.Show(sqlCommand.ExecuteNonQuery().ToString());
+            this.Close();
         }
     }
 }

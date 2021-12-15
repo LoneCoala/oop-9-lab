@@ -39,6 +39,11 @@ namespace oop_9_lab
         private void openChangeRecord()
         {
             ChangeRecord changeRecord = new ChangeRecord();
+            changeRecord.id = realId;
+            changeRecord.surname.Text = dataGridView1.Rows[whatDataCellClicked].Cells[1].Value.ToString();
+            changeRecord.name.Text = dataGridView1.Rows[whatDataCellClicked].Cells[2].Value.ToString();
+            changeRecord.fatherName.Text = dataGridView1.Rows[whatDataCellClicked].Cells[3].Value.ToString();
+            changeRecord.phoneNumber.Text = dataGridView1.Rows[whatDataCellClicked].Cells[4].Value.ToString();
             changeRecord.ShowDialog();
         }
 
@@ -70,9 +75,7 @@ namespace oop_9_lab
         public int realId = 0;
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            whatDataCellClicked = dataGridView1.CurrentCell.RowIndex;
-            realId = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
-            MessageBox.Show($"{realId}", "Абоба");
+            clickOnDataCell();
         }
 
         public void initializationOfDB()
@@ -81,9 +84,7 @@ namespace oop_9_lab
             dataSet.Tables.Clear();
             sqlDataAdapter.Fill(dataSet,"Test");
             dataGridView1.DataSource = dataSet.Tables["Test"];
-            
         }
-
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
@@ -105,16 +106,17 @@ namespace oop_9_lab
                 sqlCommand.ExecuteNonQuery();
                 initializationOfDB();
             }
-
-
         }
 
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            whatDataCellClicked = dataGridView1.CurrentCell.RowIndex;
-            realId = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
-            MessageBox.Show($"{realId}", "Абоба");
+            clickOnDataCell();
+        }
 
+        private void clickOnDataCell()
+        {
+            whatDataCellClicked = dataGridView1.CurrentCell.RowIndex;
+            realId = Convert.ToInt32(dataGridView1.Rows[whatDataCellClicked].Cells[0].Value);
         }
     }
 }
