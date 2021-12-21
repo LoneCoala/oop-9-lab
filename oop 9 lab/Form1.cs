@@ -100,8 +100,7 @@ namespace oop_9_lab
             // Удаление
             if (MessageBox.Show("Удалить строку с " + dataSet.Tables["Test"].Rows[whatDataCellClicked]["Id"] + " " + dataSet.Tables["Test"].Rows[whatDataCellClicked]["Surname"] + " " + dataSet.Tables["Test"].Rows[whatDataCellClicked]["Name"] + "?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                //SqlCommand sqlCommand = new SqlCommand($"DELETE FROM Test WHERE Id={Convert.ToString(dataSet.Tables["Test"].Rows[rowIndex]["id"])}", sqlConnection);
-                SqlCommand sqlCommand = new SqlCommand("DELETE FROM [Phonebook] WHERE Id = @Id", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("EXEC [Delete] @Id", sqlConnection);
                 sqlCommand.Parameters.AddWithValue("Id", Convert.ToInt32(dataSet.Tables["Test"].Rows[whatDataCellClicked]["Id"]));
                 sqlCommand.ExecuteNonQuery();
                 initializationOfDB();
