@@ -35,6 +35,8 @@ namespace oop_9_lab
         {
             AddRecord addRecord = new AddRecord();
             addRecord.ShowDialog();
+            addRecord.Dispose();
+            initializationOfDB();
         }
         private void openChangeRecord()
         {
@@ -45,6 +47,8 @@ namespace oop_9_lab
             changeRecord.fatherName.Text = dataGridView1.Rows[whatDataCellClicked].Cells[3].Value.ToString();
             changeRecord.phoneNumber.Text = dataGridView1.Rows[whatDataCellClicked].Cells[4].Value.ToString();
             changeRecord.ShowDialog();
+            changeRecord.Dispose();
+            initializationOfDB();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -58,7 +62,7 @@ namespace oop_9_lab
         }
 
         private SqlConnection sqlConnection = null;
-        public SqlCommandBuilder sqlBuilder = null;
+        //public SqlCommandBuilder sqlBuilder = null;
         public SqlDataAdapter sqlDataAdapter = null;
         public DataSet dataSet = new DataSet();
         private void Form1_Load(object sender, EventArgs e)
@@ -84,6 +88,7 @@ namespace oop_9_lab
             dataSet.Tables.Clear();
             sqlDataAdapter.Fill(dataSet,"Test");
             dataGridView1.DataSource = dataSet.Tables["Test"];
+            sqlDataAdapter.Dispose();
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -103,6 +108,7 @@ namespace oop_9_lab
                 SqlCommand sqlCommand = new SqlCommand("EXEC [Delete] @Id", sqlConnection);
                 sqlCommand.Parameters.AddWithValue("Id", Convert.ToInt32(dataSet.Tables["Test"].Rows[whatDataCellClicked]["Id"]));
                 sqlCommand.ExecuteNonQuery();
+                sqlCommand.Dispose();
                 initializationOfDB();
             }
         }
@@ -111,7 +117,7 @@ namespace oop_9_lab
         {
             clickOnDataCell();
         }
-
+       
         private void clickOnDataCell()
         {
             whatDataCellClicked = dataGridView1.CurrentCell.RowIndex;

@@ -24,8 +24,6 @@ namespace oop_9_lab
         {
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Test"].ConnectionString);
             sqlConnection.Open();
-            if (sqlConnection.State == ConnectionState.Open)
-                MessageBox.Show("Подключение установлено");
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -40,12 +38,16 @@ namespace oop_9_lab
                 MessageBox.Show("Вы не ввели имя или фамилию!", "Внимание!");
                 return;
             }
-            SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Phonebook] (Surname,Name,FatherName,PhoneNumber) Values (@Surname,@Name,@FatherName,@PhoneNumber)", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("EXEC [Insert] @Surname,@Name,@FatherName,@PhoneNumber", sqlConnection);
+            //SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Phonebook] (Surname,Name,FatherName,PhoneNumber) Values (@Surname,@Name,@FatherName,@PhoneNumber)", sqlConnection);
             sqlCommand.Parameters.AddWithValue("Surname", surname.Text);
             sqlCommand.Parameters.AddWithValue("Name", name.Text);
             sqlCommand.Parameters.AddWithValue("FatherName", fatherName.Text);
             sqlCommand.Parameters.AddWithValue("PhoneNumber", phoneNumber.Text);
             sqlCommand.ExecuteNonQuery();
+            sqlCommand.Dispose();
+            sqlConnection.Close();
+            sqlConnection.Dispose();
             //MessageBox.Show(sqlCommand.ExecuteNonQuery().ToString());
             this.Close();
         }

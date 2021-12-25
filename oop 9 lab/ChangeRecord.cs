@@ -30,8 +30,6 @@ namespace oop_9_lab
         {
             sqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["Test"].ConnectionString);
             sqlConnection.Open();
-            if (sqlConnection.State == ConnectionState.Open)
-                MessageBox.Show("Подключение установлено");
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
@@ -46,13 +44,17 @@ namespace oop_9_lab
                 MessageBox.Show("Вы не ввели имя или фамилию!", "Внимание!");
                 return;
             }
-            SqlCommand sqlCommand = new SqlCommand("UPDATE Phonebook SET Surname = @Surname, Name = @Name, FatherName = @FatherName, PhoneNumber = @PhoneNumber WHERE Id = @Id", sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("EXEC [Update] @Surname,@Name,@FatherName,@PhoneNumber,@Id", sqlConnection);
+            //SqlCommand sqlCommand = new SqlCommand("UPDATE Phonebook SET Surname = @Surname, Name = @Name, FatherName = @FatherName, PhoneNumber = @PhoneNumber WHERE Id = @Id", sqlConnection);
             sqlCommand.Parameters.AddWithValue("Surname", surname.Text);
             sqlCommand.Parameters.AddWithValue("Name", name.Text);
             sqlCommand.Parameters.AddWithValue("FatherName", fatherName.Text);
             sqlCommand.Parameters.AddWithValue("PhoneNumber", phoneNumber.Text);
             sqlCommand.Parameters.AddWithValue("Id", id);
             sqlCommand.ExecuteNonQuery();
+            sqlCommand.Dispose();
+            sqlConnection.Close();
+            sqlConnection.Dispose();
             //MessageBox.Show(sqlCommand.ExecuteNonQuery().ToString());
             this.Close();
         }
