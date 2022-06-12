@@ -26,5 +26,7 @@ namespace oop_9_lab
         {
             this.Close();
         }
+
+
     }
 }

@@ -21,12 +21,21 @@ namespace oop_9_lab
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            for (int i = 0; i < ListBox.CheckedItems.Count; i++)
+            {
+                string s = ListBox.CheckedItems[i].ToString();
+                MessageBox.Show(s,s);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TimeManagment_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

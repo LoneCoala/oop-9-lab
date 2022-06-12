@@ -72,7 +72,6 @@ namespace oop_9_lab
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Name = "TimeFinallization";
-            this.Text = "Подсчёт";
             this.ResumeLayout(false);
             this.PerformLayout();
 

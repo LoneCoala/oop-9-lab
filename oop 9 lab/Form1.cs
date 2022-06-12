@@ -256,14 +256,14 @@ namespace oop_9_lab
                 timeManagment.ListBox.Items.Add(dataGridView1.Rows[i].Cells[0].Value.ToString()
                                   + " " + dataGridView1.Rows[i].Cells[1].Value.ToString()
                                   + " " + dataGridView1.Rows[i].Cells[2].Value.ToString()
-/*                                  + " " + dataGridView1.Rows[i].Cells[3].Value.ToString()
+                                  + " " + dataGridView1.Rows[i].Cells[3].Value.ToString()
                                   + " " + dataGridView1.Rows[i].Cells[4].Value.ToString()
                                   + " " + dataGridView1.Rows[i].Cells[5].Value.ToString()
                                   + " " + dataGridView1.Rows[i].Cells[6].Value.ToString()
                                   + " " + dataGridView1.Rows[i].Cells[7].Value.ToString()
                                   + " " + dataGridView1.Rows[i].Cells[8].Value.ToString()
                                   + " " + dataGridView1.Rows[i].Cells[9].Value.ToString()
-                                  + " " + dataGridView1.Rows[i].Cells[10].Value.ToString()*/);
+                                  + " " + dataGridView1.Rows[i].Cells[10].Value.ToString());
             }
             timeManagment.ShowDialog();
             timeManagment.Dispose();
