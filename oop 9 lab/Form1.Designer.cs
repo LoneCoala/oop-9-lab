@@ -30,12 +30,21 @@ namespace oop_9_lab
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.деньНеделиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.понедельникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.вторникToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.средаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.четвергToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.пятницаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.субботаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.воскресеньеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.операцииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изменитьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьЗаписьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.timeManagement = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
@@ -51,13 +60,77 @@ namespace oop_9_lab
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.деньНеделиToolStripMenuItem,
             this.операцииToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(544, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(534, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // деньНеделиToolStripMenuItem
+            // 
+            this.деньНеделиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.понедельникToolStripMenuItem,
+            this.вторникToolStripMenuItem,
+            this.средаToolStripMenuItem,
+            this.четвергToolStripMenuItem,
+            this.пятницаToolStripMenuItem,
+            this.субботаToolStripMenuItem,
+            this.воскресеньеToolStripMenuItem});
+            this.деньНеделиToolStripMenuItem.Name = "деньНеделиToolStripMenuItem";
+            this.деньНеделиToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.деньНеделиToolStripMenuItem.Text = "День Недели";
+            // 
+            // понедельникToolStripMenuItem
+            // 
+            this.понедельникToolStripMenuItem.Name = "понедельникToolStripMenuItem";
+            this.понедельникToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.понедельникToolStripMenuItem.Text = "Понедельник";
+            this.понедельникToolStripMenuItem.Click += new System.EventHandler(this.понедельникToolStripMenuItem_Click);
+            // 
+            // вторникToolStripMenuItem
+            // 
+            this.вторникToolStripMenuItem.Name = "вторникToolStripMenuItem";
+            this.вторникToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.вторникToolStripMenuItem.Text = "Вторник";
+            this.вторникToolStripMenuItem.Click += new System.EventHandler(this.вторникToolStripMenuItem_Click);
+            // 
+            // средаToolStripMenuItem
+            // 
+            this.средаToolStripMenuItem.Name = "средаToolStripMenuItem";
+            this.средаToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.средаToolStripMenuItem.Text = "Среда";
+            this.средаToolStripMenuItem.Click += new System.EventHandler(this.средаToolStripMenuItem_Click);
+            // 
+            // четвергToolStripMenuItem
+            // 
+            this.четвергToolStripMenuItem.Name = "четвергToolStripMenuItem";
+            this.четвергToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.четвергToolStripMenuItem.Text = "Четверг";
+            this.четвергToolStripMenuItem.Click += new System.EventHandler(this.четвергToolStripMenuItem_Click);
+            // 
+            // пятницаToolStripMenuItem
+            // 
+            this.пятницаToolStripMenuItem.Name = "пятницаToolStripMenuItem";
+            this.пятницаToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.пятницаToolStripMenuItem.Text = "Пятница";
+            this.пятницаToolStripMenuItem.Click += new System.EventHandler(this.пятницаToolStripMenuItem_Click);
+            // 
+            // субботаToolStripMenuItem
+            // 
+            this.субботаToolStripMenuItem.Name = "субботаToolStripMenuItem";
+            this.субботаToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.субботаToolStripMenuItem.Text = "Суббота";
+            this.субботаToolStripMenuItem.Click += new System.EventHandler(this.субботаToolStripMenuItem_Click);
+            // 
+            // воскресеньеToolStripMenuItem
+            // 
+            this.воскресеньеToolStripMenuItem.Name = "воскресеньеToolStripMenuItem";
+            this.воскресеньеToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.воскресеньеToolStripMenuItem.Text = "Воскресенье";
+            this.воскресеньеToolStripMenuItem.Click += new System.EventHandler(this.воскресеньеToolStripMenuItem_Click);
             // 
             // операцииToolStripMenuItem
             // 
@@ -100,6 +173,7 @@ namespace oop_9_lab
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.timeManagement,
             this.toolStripButton1,
             this.toolStripButton2,
             this.toolStripButton3,
@@ -108,9 +182,20 @@ namespace oop_9_lab
             this.toolStripButton5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(544, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(534, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            // 
+            // timeManagement
+            // 
+            this.timeManagement.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.timeManagement.Image = global::oop_9_lab.Properties.Resources.Ван_вор;
+            this.timeManagement.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.timeManagement.Name = "timeManagement";
+            this.timeManagement.Size = new System.Drawing.Size(23, 22);
+            this.timeManagement.Text = "Подсчитать время";
+            this.timeManagement.Click += new System.EventHandler(this.timeManagement_Click);
             // 
             // toolStripButton1
             // 
@@ -176,7 +261,7 @@ namespace oop_9_lab
             this.dataGridView1.Location = new System.Drawing.Point(0, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(544, 401);
+            this.dataGridView1.Size = new System.Drawing.Size(534, 401);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -190,13 +275,13 @@ namespace oop_9_lab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(544, 450);
+            this.ClientSize = new System.Drawing.Size(534, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Телефонная база данных";
+            this.Text = "Планировщик встреч";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -224,6 +309,15 @@ namespace oop_9_lab
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripMenuItem деньНеделиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem понедельникToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem вторникToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem средаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem четвергToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem пятницаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem субботаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem воскресеньеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton timeManagement;
     }
 }
 

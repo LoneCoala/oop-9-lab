@@ -85,6 +85,18 @@
     <Compile Include="ChangeRecord.Designer.cs">
       <DependentUpon>ChangeRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="TimeFinallization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeFinallization.Designer.cs">
+      <DependentUpon>TimeFinallization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimeManagment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeManagment.Designer.cs">
+      <DependentUpon>TimeManagment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -95,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangeRecord.resx">
       <DependentUpon>ChangeRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeFinallization.resx">
+      <DependentUpon>TimeFinallization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeManagment.resx">
+      <DependentUpon>TimeManagment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -138,6 +156,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\Ван вор.jpg" />
+    <None Include="Resources\dIzP6W_A5xw.jpg" />
+    <None Include="Resources\adsdasdas.jpg" />
     <None Include="Resources\выход.jpg" />
     <None Include="Resources\синхронизировать.png" />
     <None Include="Resources\X.jpg" />
