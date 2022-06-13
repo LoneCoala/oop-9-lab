@@ -74,7 +74,7 @@ namespace oop_9_lab
             this.Controls.Add(this.ListBox);
             this.Name = "TimeManagment";
             this.Text = "Подсчёт Времени";
-            this.Load += new System.EventHandler(this.TimeManagment_Load_1);
+           // this.Load += new System.EventHandler(this.TimeManagment_Load_1);
             this.ResumeLayout(false);
 
         }
