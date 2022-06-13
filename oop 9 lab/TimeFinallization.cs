@@ -17,6 +17,7 @@ namespace oop_9_lab
             InitializeComponent();
         }
 
+        Time final1;
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -25,6 +26,11 @@ namespace oop_9_lab
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -48,7 +48,7 @@ namespace oop_9_lab
 
             Form1 form1 = new Form1();
             SqlCommand sqlCommand;
-            sqlCommand = new SqlCommand("EXEC [UpdateMon] @Surname,@Name,@TimeN1,@TimeN2,@TimeA1,@TimeA2,@TimeM1,@TimeM2,@TimeE1,@TimeE2,@Id", sqlConnection);
+            sqlCommand = new SqlCommand("EXEC [UpdateMon] @Surname,@Name,@TimeN1,@TimeM1,@TimeM2,@TimeA1,@TimeA2,@TimeE1,@TimeE2,@TimeN2, @Id", sqlConnection);
             if ((String.IsNullOrWhiteSpace(surname.Text)) || (String.IsNullOrWhiteSpace(name.Text)))
             {
                 MessageBox.Show("Вы не ввели имя или фамилию!", "Внимание!");
@@ -56,15 +56,15 @@ namespace oop_9_lab
             }
             if (whatDayOfWeek == 1)
             {
-                MessageBox.Show("1", "1");
+                MessageBox.Show("Изменения приняты","Понедельник") ;
                 sqlCommand.Dispose();
-                sqlCommand = new SqlCommand("EXEC [UpdateMon] @Surname,@Name,@TimeN1,@TimeN2,@TimeA1,@TimeA2,@TimeM1,@TimeM2,@TimeE1,@TimeE2,@Id", sqlConnection);
+                sqlCommand = new SqlCommand("EXEC [UpdateMon]  @Surname,@Name,@TimeN1,@TimeM1,@TimeM2,@TimeA1,@TimeA2,@TimeE1,@TimeE2,@TimeN2, @Id", sqlConnection);
             }
             if (whatDayOfWeek == 2)
             {
                 MessageBox.Show("2", "1");
                 sqlCommand.Dispose();
-                sqlCommand = new SqlCommand("EXEC [UpdateTue] @Surname,@Name,@TimeN1,@TimeN2,@TimeA1,@TimeA2,@TimeM1,@TimeM2,@TimeE1,@TimeE2,@Id", sqlConnection);
+                sqlCommand = new SqlCommand("EXEC [UpdateTue] @Surname,@Name,@TimeN1,@TimeM1,@TimeM2,@TimeA1,@TimeA2,@TimeE1,@TimeE2,@TimeN2, @Id", sqlConnection);
             }
             if (whatDayOfWeek == 3)
             {
@@ -94,7 +94,7 @@ namespace oop_9_lab
             {
                 MessageBox.Show("7","7");
                 sqlCommand.Dispose();
-                sqlCommand = new SqlCommand("EXEC [UpdateSun] @Surname,@Name,@TimeN1,@TimeN2,@TimeA1,@TimeA2,@TimeM1,@TimeM2,@TimeE1,@TimeE2,@Id", sqlConnection);
+                sqlCommand = new SqlCommand("EXEC [UpdateSun] @Surname,@Name,@TimeN1,@TimeM1,@TimeM2,@TimeA1,@TimeA2,@TimeE1,@TimeE2,@TimeN2, @Id", sqlConnection);
             }
 
 
