@@ -31,5 +31,10 @@ namespace oop_9_lab
         {
 
         }
+
+        private void TimeManagment_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

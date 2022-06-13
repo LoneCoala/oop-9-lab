@@ -45,10 +45,9 @@ namespace oop_9_lab
                 MessageBox.Show("Вы не ввели имя или фамилию!", "Внимание!");
                 return;
             }
-
             Form1 form1 = new Form1();
             SqlCommand sqlCommand;
-            sqlCommand = new SqlCommand("EXEC [UpdateMon] @Surname,@Name,@TimeN1,@TimeM1,@TimeM2,@TimeA1,@TimeA2,@TimeE1,@TimeE2,@TimeN2, @Id", sqlConnection);
+            sqlCommand = new SqlCommand("EXEC [UpdateMon] @Name, @Surname, @TimeN1, @TimeM1, @TimeM2, @TimeA1, @TimeA2, @TimeE1, @TimeE2, @TimeN2, @Id", sqlConnection);
             if ((String.IsNullOrWhiteSpace(surname.Text)) || (String.IsNullOrWhiteSpace(name.Text)))
             {
                 MessageBox.Show("Вы не ввели имя или фамилию!", "Внимание!");
@@ -58,59 +57,61 @@ namespace oop_9_lab
             {
                 MessageBox.Show("Изменения приняты","Понедельник") ;
                 sqlCommand.Dispose();
-                sqlCommand = new SqlCommand("EXEC [UpdateMon]  @Surname,@Name,@TimeN1,@TimeM1,@TimeM2,@TimeA1,@TimeA2,@TimeE1,@TimeE2,@TimeN2, @Id", sqlConnection);
+                sqlCommand = new SqlCommand("EXEC [UpdateMon]  @Name, @Surname, @TimeN1, @TimeM1, @TimeM2, @TimeA1, @TimeA2, @TimeE1, @TimeE2, @TimeN2, @Id", sqlConnection);
             }
             if (whatDayOfWeek == 2)
             {
                 MessageBox.Show("2", "1");
                 sqlCommand.Dispose();
-                sqlCommand = new SqlCommand("EXEC [UpdateTue] @Surname,@Name,@TimeN1,@TimeM1,@TimeM2,@TimeA1,@TimeA2,@TimeE1,@TimeE2,@TimeN2, @Id", sqlConnection);
+                sqlCommand = new SqlCommand("EXEC [UpdateTue] @Name, @Surname, @TimeN1, @TimeM1, @TimeM2, @TimeA1, @TimeA2, @TimeE1, @TimeE2, @TimeN2, @Id", sqlConnection);
             }
             if (whatDayOfWeek == 3)
             {
                 MessageBox.Show("3", "3");
                 sqlCommand.Dispose();
-                sqlCommand = new SqlCommand("EXEC [UpdateWed] @Surname,@Name,@TimeN1,@TimeN2,@TimeA1,@TimeA2,@TimeM1,@TimeM2,@TimeE1,@TimeE2,@Id", sqlConnection);
+                sqlCommand = new SqlCommand("EXEC [UpdateWed] @Name, @Surname, @TimeN1, @TimeM1, @TimeM2, @TimeA1, @TimeA2, @TimeE1, @TimeE2, @TimeN2, @Id", sqlConnection);
             }
             if (whatDayOfWeek == 4)
             {
                 MessageBox.Show("4", "4");
                 sqlCommand.Dispose();
-                sqlCommand = new SqlCommand("EXEC [UpdateThu] @Surname,@Name,@TimeN1,@TimeN2,@TimeA1,@TimeA2,@TimeM1,@TimeM2,@TimeE1,@TimeE2,@Id", sqlConnection);
+                sqlCommand = new SqlCommand("EXEC [UpdateThu] @Name, @Surname, @TimeN1, @TimeM1, @TimeM2, @TimeA1, @TimeA2, @TimeE1, @TimeE2, @TimeN2, @Id", sqlConnection);
             }
             if (whatDayOfWeek == 5)
             {
                 MessageBox.Show("5", "5");
                 sqlCommand.Dispose();
-                sqlCommand = new SqlCommand("EXEC [UpdateFri] @Surname,@Name,@TimeN1,@TimeN2,@TimeA1,@TimeA2,@TimeM1,@TimeM2,@TimeE1,@TimeE2,@Id", sqlConnection);
+                sqlCommand = new SqlCommand("EXEC [UpdateFri] @Name, @Surname, @TimeN1, @TimeM1, @TimeM2, @TimeA1, @TimeA2, @TimeE1, @TimeE2, @TimeN2, @Id", sqlConnection);
             }
             if (whatDayOfWeek == 6)
             {
                 MessageBox.Show("6", "6");
                 sqlCommand.Dispose();
-                sqlCommand = new SqlCommand("EXEC [UpdateSat] @Surname,@Name,@TimeN1,@TimeN2,@TimeA1,@TimeA2,@TimeM1,@TimeM2,@TimeE1,@TimeE2,@Id", sqlConnection);
+                sqlCommand = new SqlCommand("EXEC [UpdateSat] @Name, @Surname, @TimeN1, @TimeM1, @TimeM2, @TimeA1, @TimeA2, @TimeE1, @TimeE2, @TimeN2, @Id", sqlConnection);
             }
             if (whatDayOfWeek == 7)
             {
                 MessageBox.Show("7","7");
                 sqlCommand.Dispose();
-                sqlCommand = new SqlCommand("EXEC [UpdateSun] @Surname,@Name,@TimeN1,@TimeM1,@TimeM2,@TimeA1,@TimeA2,@TimeE1,@TimeE2,@TimeN2, @Id", sqlConnection);
+                sqlCommand = new SqlCommand("EXEC [UpdateSun] @Name, @Surname, @TimeN1, @TimeM1, @TimeM2, @TimeA1, @TimeA2, @TimeE1, @TimeE2, @TimeN2, @Id", sqlConnection);
             }
 
 
             //SqlCommand sqlCommand = new SqlCommand("EXEC [Insert] @Surname,@Name,@TimeN1@TimeN2,@TimeA1,@TimeA2,@TimeM1,@TimeM2,@TimeE1,@TimeE2", sqlConnection);
             //SqlCommand sqlCommand = new SqlCommand("INSERT INTO [Phonebook] (Surname,Name,FatherName,PhoneNumber) Values (@Surname,@Name,@FatherName,@PhoneNumber)", sqlConnection);
-            sqlCommand.Parameters.AddWithValue("Id", id);
-            sqlCommand.Parameters.AddWithValue("Surname", surname.Text);
+            
             sqlCommand.Parameters.AddWithValue("Name", name.Text);
+            sqlCommand.Parameters.AddWithValue("Surname", surname.Text);
             sqlCommand.Parameters.AddWithValue("TimeN1", timeN1.Text);
-            sqlCommand.Parameters.AddWithValue("TimeN2", timeN2.Text);
+            sqlCommand.Parameters.AddWithValue("TimeM1", timeM1.Text);
+            sqlCommand.Parameters.AddWithValue("TimeM2", timeM2.Text);
             sqlCommand.Parameters.AddWithValue("TimeA1", timeA1.Text);
             sqlCommand.Parameters.AddWithValue("TimeA2", timeA2.Text);
             sqlCommand.Parameters.AddWithValue("TimeE1", timeE1.Text);
             sqlCommand.Parameters.AddWithValue("TimeE2", timeE2.Text);
-            sqlCommand.Parameters.AddWithValue("TimeM1", timeM1.Text);
-            sqlCommand.Parameters.AddWithValue("TimeM2", timeM2.Text);
+            sqlCommand.Parameters.AddWithValue("TimeN2", timeN2.Text);
+            sqlCommand.Parameters.AddWithValue("Id", id);
+
 
             sqlCommand.ExecuteNonQuery();
             sqlCommand.Dispose();
